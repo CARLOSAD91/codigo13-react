@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+// primer paso para definir un componente es el nombre
+// El nombre de un componente siempre debe iniciar en mayusculas
+// un componente es un funcion, por ende podemos crearlo function
+// o arrow function
+const PrimerComponente = () => {
+  // esta funcion lo que hara sera retornar una vista
+  // lo que esta dentro de los parentisis sera el objeto visual
+  // que vamos a retonar
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1> Hola Mundo</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+export default PrimerComponente
