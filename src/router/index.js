@@ -20,6 +20,8 @@ import Private from "../layout/Private";
 import Ecommerce from "../layout/Ecommerce";
 import PopularWeek from "../pages/PopularWeek";
 import BasketView from "../pages/BasketView";
+import CreateProduct from "../pages/CreateProduct";
+import Profile from "../pages/Profile";
 
 
 
@@ -51,6 +53,8 @@ const Router = () => {
             path="/youtube/administrador/editar/:id"
             element={<MovieUpdate />}
           />
+          <Route path="/ecommerce/create" element={<CreateProduct />} />
+          <Route path="/perfil" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>

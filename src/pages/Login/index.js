@@ -4,6 +4,7 @@ import { UserContext } from "../../Context/UserContext";
 import bgLogin from "../../assets/Saly-36.png";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import {storeUser as storeUserFirebase, loginUser} from "../../service/firestore";
 
 const Login = () => {
 
@@ -24,27 +25,26 @@ const Login = () => {
     });
   };
 
-  const handleClickLogin = () => {
-    if (values.email === 'pepe@mail.com' && values.password === '123456') {
-      const user = {
-        nombre: "pepe",
-        apellido: "Zapata",
-        correo:'pepe@mail.com',
-        edad: 21,
-        trabajo: "Software Developer",
-        dni:'12234234234'
+  const handleClickLogin = async () => {
+    const { email, password } = values;
+    let reponse = await loginUser(email, password);
+    console.log(reponse);
+    if (!reponse.ok) {
+      const reponse = await storeUserFirebase(email, password);
+      if (!reponse.ok) {
+        swal({
+          text: "Usuario no existe",
+          icon: "error",
+          title: "Error",
+        });
+        return;
       }
-      storeUser(user);
-      navigate("/youtube/administrador");
-      
-    } else {
-      swal({
-        icon: 'error',
-        title: 'Error',
-        text:"Email incorrecto"
-      })
     }
-     
+
+    // recuerden que despues del login debemos guaradar el usuario
+
+    storeUser(reponse.data.user);
+    window.location.href = "/youtube/administrador";
     
   };
 

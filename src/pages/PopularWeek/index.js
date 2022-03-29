@@ -16,6 +16,8 @@ const PopularWeek = () => {
     setClothes(data);
   };
 
+
+
   useEffect(() => {
     fetchClothes();
   }, []);
