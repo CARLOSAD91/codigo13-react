@@ -16,14 +16,15 @@ import {
 } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD4O5g7loVbjNvJKw0KRb1eH9N_aTca5Tw",
-  authDomain: "codigo13-34b65.firebaseapp.com",
-  projectId: "codigo13-34b65",
-  storageBucket: "codigo13-34b65.appspot.com",
-  messagingSenderId: "436776363555",
-  appId: "1:436776363555:web:129d19c2cbe95e9ca4f396",
-  measurementId: "G-9H7HFQ7NS0",
+  apiKey: "AIzaSyCGY217DaKn9NoFdES_-Ch00Ye-KS1LNYc",
+  authDomain: "codigo13-739a4.firebaseapp.com",
+  projectId: "codigo13-739a4",
+  storageBucket: "codigo13-739a4.appspot.com",
+  messagingSenderId: "21080353798",
+  appId: "1:21080353798:web:84860205a60e308a296787",
+  measurementId: "G-RJZPVW7RSS",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -66,12 +67,7 @@ export const deleteProductClothe = async (id) => {
 
 // vamos a crear una funcion qu reciba un email y password
 // y cree un cuenta en firebase
-const auth = getAuth();
-
-// podemos crear una funcion que nos retorne el usuario actual
-export const getUserFromFirebase = () => {
-  return auth.currentUser;
-};
+export const auth = getAuth();
 
 export const updateUserProfile = async (profile) => {
   try {

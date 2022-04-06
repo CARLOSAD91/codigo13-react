@@ -1,7 +1,7 @@
 import { useState, useEffect,useContext } from "react";
 import { Container, Grid, Button } from "@mui/material";
 import "./index.css";
-import { getProductsClothes } from "../../service/firestore";
+import { getProductClothes } from "../../service/firestore";
 import { UserContext } from "../../Context/UserContext";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 
@@ -12,7 +12,7 @@ const PopularWeek = () => {
   const [clothes, setClothes] = useState([]);
 
   const fetchClothes = async () => {
-    const data = await getProductsClothes();
+    const data = await getProductClothes();
     setClothes(data);
   };
 
